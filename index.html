@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-body-secondary">
+    <header></header>
+    <main class="container">
+        <div class="row">
+            <div class="col-12 mb-3 mt-3">
+                <div class="w-100 bg-white p-4 rounded-3">
+                    <div class="d-flex flex-wrap gap-3 justify-content-around align-items-center">
+                        <div>
+                            <input type="number" class="form-control bg-light" placeholder="Укажите вес" id="enterVes">
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="selectType" class="form-check-input" id="ves" value="ves" checked>
+                            <label class="form-check-label" for="ves">Поддержание веса</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="selectType" class="form-check-input" id="massa" value="massa">
+                            <label class="form-check-label" for="massa">Набор массы</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="selectType" class="form-check-input" id="fat" value="fat">
+                            <label class="form-check-label" for="fat">Похудение</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-12">
+                <div class="w-100 bg-white rounded-3 p-4">
+                    <div class="container-fluid">
+                        <div class="row text-center">
+                            <div class="col-md-3 col-12">
+                                <h1 class="fs-4">Калории</h1>
+                                <p class="mt-3 fs-3 text-secondary"><span id="cal_Enter">0</span>/<span id="cal">0</span></p>
+                            </div>
+                            <div class="col-md-3 col-12 border-left border-2 border-secondary">
+                                <h1 class="fs-4">Белки</h1>
+                                <p class="mt-3 fs-3 text-secondary"><span id="bel_Enter">0</span>/<span id="bel">0</span></p>
+                            </div>
+                            <div class="col-md-3 col-12">
+                                <h1 class="fs-4">Жиры</h1>
+                                <p class="mt-3 fs-3 text-secondary"><span id="zhir_Enter">0</span>/<span id="zhir">0</span></p>
+                            </div>
+                            <div class="col-md-3">
+                                <h1 class="fs-4">Углеводы</h1>
+                                <p class="mt-3 fs-3 text-secondary"><span id="ugl_Enter">0</span>/<span id="ugl">0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 bg-white rounded-3 mt-3 p-4" style="min-height: 200px;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Название продукта</th>
+                                <th scope="col">Вес продукта в граммах</th>
+                                <th scope="col">Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody id="displayList">
+                        </tbody>
+                    </table>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">+ Добавить</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 mt-4 mt-lg-0">
+                <div class="w-100 bg-white rounded-3 h-100 p-3">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6 col-12">
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">A</h1>
+                                        <p class="fs-5 text-secondary"><span id="A_Enter">0</span> / 800 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">D</h1>
+                                        <p class="fs-5 text-secondary"><span id="D_Enter">0</span> / 12 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">E</h1>
+                                        <p class="fs-5 text-secondary"><span id="E_Enter">0</span> / 15 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">K</h1>
+                                        <p class="fs-5 text-secondary"><span id="K_Enter">0</span> / 105 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">C</h1>
+                                        <p class="fs-5 text-secondary"><span id="C_Enter">0</span> / 90 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B1</h1>
+                                        <p class="fs-5 text-secondary"><span id="B1_Enter">0</span> / 1.2 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B2</h1>
+                                        <p class="fs-5 text-secondary"><span id="B2_Enter">0</span> / 1.2 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B3</h1>
+                                        <p class="fs-5 text-secondary"><span id="B3_Enter">0</span> / 15 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B5</h1>
+                                        <p class="fs-5 text-secondary"><span id="B5_Enter">0</span> / 5 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B6</h1>
+                                        <p class="fs-5 text-secondary"><span id="B6_Enter">0</span> / 1.3 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B9</h1>
+                                        <p class="fs-5 text-secondary"><span id="B9_Enter">0</span> / 400 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-4">B12</h1>
+                                        <p class="fs-5 text-secondary"><span id="B12_Enter">0</span> / 2.4 мкг</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Кальций</h1>
+                                        <p class="fs-6 text-secondary"><span id="Ca_Enter">0</span> / 1000 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Магний</h1>
+                                        <p class="fs-6 text-secondary"><span id="Mg_Enter">0</span> / 300 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Калий</h1>
+                                        <p class="fs-6 text-secondary"><span id="Ka_Enter">0</span> / 4700 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Железо</h1>
+                                        <p class="fs-6 text-secondary"><span id="Fe_Enter">0</span> / 18 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Йод</h1>
+                                        <p class="fs-6 text-secondary"><span id="I_Enter">0</span> / 150 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Цинк</h1>
+                                        <p class="fs-6 text-secondary"><span id="Zn_Enter">0</span> / 15 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Селен</h1>
+                                        <p class="fs-6 text-secondary"><span id="Se_Enter">0</span> / 60 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Медь</h1>
+                                        <p class="fs-6 text-secondary"><span id="Cu_Enter">0</span> / 3 мг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Хром</h1>
+                                        <p class="fs-6 text-secondary"><span id="Cr_Enter">0</span> / 30 мкг</p>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <h1 class="fs-6">Фосфор</h1>
+                                        <p class="fs-6 text-secondary"><span id="F_Enter">0</span> / 1000 мг</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Выберите продукт</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Продукт</th>
+                            <th scope="col">Выбрать</th>
+                          </tr>
+                        </thead>
+                        <tbody id="showList">
+                        </tbody>
+                      </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" id="selectValue" class="btn btn-primary" data-bs-dismiss="modal">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
